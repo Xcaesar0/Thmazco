@@ -120,8 +120,38 @@ img { display: block; max-width: 100%; }
   visibility: visible;
 }
 
-.scene.is-active { pointer-events: auto; z-index: 2; }
-.scene.is-leaving { z-index: 1; }
+.scene {
+  opacity: 0;
+  transition: opacity var(--dur-scene) var(--ease-inout);
+}
+.scene.is-active { pointer-events: auto; z-index: 2; opacity: 1; }
+.scene.is-leaving { z-index: 1; opacity: 0; }
+
+/* HUD tones — follow the active scene (set on <html data-tone>) */
+.hud, .hud * { transition: color 0.8s var(--ease-inout), background-color 0.8s var(--ease-inout), border-color 0.8s; }
+[data-tone="light"] .hud__brand-label,
+[data-tone="light"] .hud__credit,
+[data-tone="light"] .cue,
+[data-tone="light"] .hud .mono { color: #55565c; }
+[data-tone="light"] .hud__credit strong { color: var(--ink); }
+[data-tone="light"] .hud__rule,
+[data-tone="light"] .hud__brand-sep,
+[data-tone="light"] .cue__track,
+[data-tone="light"] .rail__tick { background: rgb(14 14 16 / 0.2); }
+[data-tone="light"] .rail__tick.is-current { background: var(--orange); }
+[data-tone="light"] .rail__index { color: var(--orange-deep); }
+[data-tone="orange"] .hud__brand-label,
+[data-tone="orange"] .hud__credit,
+[data-tone="orange"] .hud__credit strong,
+[data-tone="orange"] .cue,
+[data-tone="orange"] .hud .mono { color: var(--ink); }
+[data-tone="orange"] .hud__rule,
+[data-tone="orange"] .hud__brand-sep,
+[data-tone="orange"] .rail__tick,
+[data-tone="orange"] .cue__track { background: rgb(14 14 16 / 0.25); }
+[data-tone="orange"] .rail__tick.is-current,
+[data-tone="orange"] .cue__track::after { background: var(--ink); }
+[data-tone="light"] .grain { opacity: 0.05; }
 
 /* --------------------------------------------------------------------------
    Reveal primitives — elements wait in their "before" state and resolve when

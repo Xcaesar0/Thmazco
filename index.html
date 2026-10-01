@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="css/fonts.css">
   <link rel="stylesheet" href="css/foundation.css">
   <link rel="stylesheet" href="css/s01-opening.css">
+  <link rel="stylesheet" href="css/chapters.css">
 </head>
 <body>
 
@@ -46,7 +47,7 @@
 
   <!-- Stage. data-total is the planned scene count for the full presentation;
        scenes are added one by one as sections are built. -->
-  <main class="stage" data-total="8">
+  <main class="stage" data-total="14">
 
     <!-- ================================================================
          SCENE 01 — الافتتاح
@@ -130,11 +131,426 @@
       <span class="mono s01__tag s01__tag--scene r-fade" style="--d:2.3s" aria-hidden="true">Scene 01 / Opening</span>
     </section>
 
+
+    <!-- ================================================================
+         02 — الموقع اليوم
+         ================================================================ -->
+    <section class="scene s02" id="s02" data-scene="today" aria-labelledby="s02-title">
+      <div class="ch s02__grid">
+        <div class="s02__text">
+          <p class="eyebrow r-fade" style="--d:.2s"><span class="eyebrow__rule"></span><span class="mono">02</span>الموقع اليوم</p>
+          <h2 class="h-xl" id="s02-title">
+            <span class="r-line" style="--d:.3s"><span>طهماز أكبر من الصورة</span></span>
+            <span class="r-line" style="--d:.42s"><span>التي يقدمها <span class="accent">موقعها الحالي</span></span></span>
+          </h2>
+
+          <div class="s02__assets r-fade" style="--d:.7s">
+            <p class="label">ما يملكه الموقع اليوم</p>
+            <p class="s02__inventory">المنتجات <i></i> الفئات <i></i> المشاريع <i></i> تاريخ الشركة <i></i> الخبرة التقنية</p>
+          </div>
+
+          <ol class="obs">
+            <li class="r-fade" style="--d:.9s"><span class="mono">01</span>المحتوى أقوى من طريقة تقديمه</li>
+            <li class="r-fade" style="--d:1s"><span class="mono">02</span>المنتجات تظهر بشكل أقرب إلى الكتالوج</li>
+            <li class="r-fade" style="--d:1.1s"><span class="mono">03</span>المشاريع والخبرة تحتاج حضورًا بصريًا أقوى</li>
+            <li class="r-fade" style="--d:1.2s"><span class="mono">04</span>تجربة التصفح يمكن أن تصبح أوضح وأكثر حداثة</li>
+          </ol>
+        </div>
+
+        <!-- Current-site fragments. Drop real screenshots at the data-shot paths
+             and they replace the schematic automatically. -->
+        <div class="s02__frags" aria-label="لقطات من الموقع الحالي">
+          <figure class="frag frag--a r-fade" style="--d:.5s" data-shot="assets/img/current/home.jpg">
+            <div class="frag__schema" aria-hidden="true"><b class="w60"></b><b class="w90 tall"></b><b class="w40"></b><b class="row"><i></i><i></i><i></i></b></div>
+            <figcaption class="mono">tahmazco.com — Home</figcaption>
+            <span class="pin" style="top:28%;right:12%">01</span>
+            <span class="pin" style="top:70%;right:58%">04</span>
+          </figure>
+          <figure class="frag frag--b r-fade" style="--d:.65s" data-shot="assets/img/current/products.jpg">
+            <div class="frag__schema" aria-hidden="true"><b class="w40"></b><b class="row"><i></i><i></i><i></i><i></i></b><b class="row"><i></i><i></i><i></i><i></i></b></div>
+            <figcaption class="mono">Products</figcaption>
+            <span class="pin" style="top:46%;right:30%">02</span>
+          </figure>
+          <figure class="frag frag--c r-fade" style="--d:.8s" data-shot="assets/img/current/projects.jpg">
+            <div class="frag__schema" aria-hidden="true"><b class="w40"></b><b class="w90"></b><b class="w90"></b><b class="w60"></b></div>
+            <figcaption class="mono">Projects</figcaption>
+            <span class="pin" style="top:50%;right:40%">03</span>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         03 — فرصة التحول
+         ================================================================ -->
+    <section class="scene s03" id="s03" data-scene="shift" aria-labelledby="s03-title">
+      <div class="ch s03__wrap">
+        <p class="eyebrow r-fade" style="--d:.1s"><span class="eyebrow__rule"></span><span class="mono">03</span>فرصة التحول</p>
+
+        <p class="s03__from r-fade" style="--d:.3s"><span>من</span> موقع يعرض المنتجات</p>
+
+        <ol class="s03__chain" aria-label="مسار التحول">
+          <li style="--i:0">منتجات</li>
+          <li style="--i:1">حلول</li>
+          <li style="--i:2">مشاريع</li>
+          <li style="--i:3">ثقة</li>
+          <li style="--i:4">علاقة مستمرة مع العميل</li>
+        </ol>
+        <span class="s03__line r-draw" style="--d:.6s" aria-hidden="true"></span>
+
+        <h2 class="s03__to" id="s03-title">
+          <span class="r-line" style="--d:2s"><span><span class="s03__to-k">إلى</span> تجربة رقمية تعكس <span class="accent">حجم طهماز</span></span></span>
+        </h2>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         04 — ماذا ستغير التجربة الجديدة؟
+         ================================================================ -->
+    <section class="scene s04 scene--light" id="s04" data-scene="changes" data-tone="light" aria-labelledby="s04-title">
+      <div class="ch s04__grid">
+        <div class="s04__head">
+          <p class="eyebrow r-fade" style="--d:.1s"><span class="eyebrow__rule"></span><span class="mono">04</span>التجربة الجديدة</p>
+          <h2 class="h-xl" id="s04-title">
+            <span class="r-line" style="--d:.2s"><span>ماذا ستغيّر</span></span>
+            <span class="r-line" style="--d:.32s"><span>التجربة الجديدة؟</span></span>
+          </h2>
+          <p class="lead r-fade" style="--d:.5s">نفس أقسام الموقع، بتجربة مختلفة في كل طبقة.</p>
+        </div>
+
+        <ol class="strata">
+          <li style="--i:0;--len:92%"><span class="strata__n mono">01</span><div><h3>اكتشاف أفضل</h3><p>الوصول إلى المنتجات والفئات بشكل أوضح.</p></div><span class="strata__bar"></span></li>
+          <li style="--i:1;--len:76%"><span class="strata__n mono">02</span><div><h3>عرض أقوى للمنتجات</h3><p>تقديم تقني وبصري أكثر احترافية.</p></div><span class="strata__bar"></span></li>
+          <li style="--i:2;--len:60%"><span class="strata__n mono">03</span><div><h3>حضور أقوى للمشاريع</h3><p>إظهار حجم خبرة طهماز وتنفيذاتها.</p></div><span class="strata__bar"></span></li>
+          <li style="--i:3;--len:44%"><span class="strata__n mono">04</span><div><h3>هوية رقمية أكثر قوة</h3><p>تجربة تليق بتاريخ وحجم الشركة.</p></div><span class="strata__bar"></span></li>
+          <li style="--i:4;--len:28%" class="is-hot"><span class="strata__n mono">05</span><div><h3>تجربة شراء أكثر ترابطًا</h3><p>دمج الحساب والشراء ونقاط الولاء بشكل طبيعي.</p></div><span class="strata__bar"></span></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         05 — الكشف عن الاتجاه الجديد
+         ================================================================ -->
+    <section class="scene s05" id="s05" data-scene="reveal" aria-labelledby="s05-title">
+      <div class="s05__glow" aria-hidden="true"></div>
+
+      <div class="layer s05__crop" data-depth="10">
+        <div class="uiframe s05__crop-frame">
+          <img src="assets/img/ui-home-desktop.png" width="1440" height="980" alt="الواجهة الرئيسية المقترحة — عن قرب">
+        </div>
+        <span class="mono s05__crop-tag r-fade" style="--d:1.4s">Detail · Hero 1:1</span>
+      </div>
+
+      <div class="layer s05__scroller" data-depth="18">
+        <div class="uiframe s05__scroll-frame">
+          <img src="assets/img/ui/home-full.jpg" width="1440" height="9380" alt="الصفحة الرئيسية المقترحة كاملة">
+        </div>
+        <span class="mono s05__scroll-tag r-fade" style="--d:1.2s">Proposed home · full page</span>
+      </div>
+
+      <div class="ch s05__text">
+        <p class="eyebrow r-fade" style="--d:.2s"><span class="eyebrow__rule"></span><span class="mono">05</span>الاتجاه الجديد</p>
+        <h2 class="h-xl" id="s05-title">
+          <span class="r-line" style="--d:.3s"><span class="dim">هذه ليست مجرد واجهة أجمل</span></span>
+          <span class="r-line" style="--d:.45s"><span>بل طريقة جديدة</span></span>
+          <span class="r-line" style="--d:.57s"><span>لعرض <span class="accent">طهماز</span></span></span>
+        </h2>
+        <ol class="s05__index r-fade" style="--d:.9s">
+          <li><span class="mono">01</span>الواجهة</li>
+          <li><span class="mono">02</span>منظومة المجالات</li>
+          <li><span class="mono">03</span>المنتجات</li>
+          <li><span class="mono">04</span>نقاط الولاء</li>
+          <li><span class="mono">05</span>قصة الشركة</li>
+          <li><span class="mono">06</span>المشاريع</li>
+          <li><span class="mono">07</span>الحلول</li>
+          <li><span class="mono">08</span>التواصل</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         06 — من التصفح إلى الاكتشاف
+         ================================================================ -->
+    <section class="scene s06" id="s06" data-scene="discovery" aria-labelledby="s06-title">
+      <div class="ch s06__grid">
+        <div class="s06__head">
+          <p class="eyebrow r-fade" style="--d:.1s"><span class="eyebrow__rule"></span><span class="mono">06</span>من التصفح إلى الاكتشاف</p>
+          <h2 class="h-xl" id="s06-title">
+            <span class="r-line" style="--d:.2s"><span>ستة مجالات، <span class="accent">طريق واضح</span></span></span>
+            <span class="r-line" style="--d:.32s"><span>إلى كل منتج</span></span>
+          </h2>
+          <ol class="s06__cats r-fade" style="--d:.5s">
+            <li><span class="mono">01</span>حلول الطاقة</li>
+            <li><span class="mono">02</span>التكييف المركزي</li>
+            <li><span class="mono">03</span>التطبيقات الصناعية</li>
+            <li><span class="mono">04</span>تطبيقات العزل</li>
+            <li><span class="mono">05</span>تطبيقات المياه</li>
+            <li><span class="mono">06</span>التدفئة المنزلية</li>
+          </ol>
+        </div>
+
+        <figure class="s06__shot s06__shot--main r-fade" style="--d:.45s">
+          <div class="uiframe"><img src="assets/img/ui/home-products.jpg" width="1440" height="1120" alt="عرض المنتجات المقترح"></div>
+          <figcaption><span class="mono">A</span>عرض أقوى للمنتج — من الكتالوج إلى المواصفة</figcaption>
+        </figure>
+        <figure class="s06__shot s06__shot--b r-fade" style="--d:.6s">
+          <div class="uiframe"><img src="assets/img/ui/home-ecosystem.jpg" width="1440" height="1080" alt="منظومة المجالات الستة"></div>
+          <figcaption><span class="mono">B</span>فئات أوضح في منظومة واحدة</figcaption>
+        </figure>
+        <figure class="s06__shot s06__shot--c r-fade" style="--d:.75s">
+          <div class="uiframe"><img src="assets/img/ui/home-solutions.jpg" width="1440" height="960" alt="اختيار المجال وعرض الحلول"></div>
+          <figcaption><span class="mono">C</span>تنقل أسهل بين المجالات</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         07 — المشاريع تصبح دليل خبرة
+         ================================================================ -->
+    <section class="scene s07" id="s07" data-scene="projects" aria-labelledby="s07-title">
+      <div class="layer s07__photo" data-depth="-8" aria-hidden="true"><div></div></div>
+      <div class="s07__shade" aria-hidden="true"></div>
+
+      <div class="ch s07__grid">
+        <div class="s07__head">
+          <p class="eyebrow r-fade" style="--d:.1s"><span class="eyebrow__rule"></span><span class="mono">07</span>المشاريع</p>
+          <h2 class="h-giant" id="s07-title">
+            <span class="r-line" style="--d:.25s"><span class="dim">لا نقول إن لدينا خبرة فقط</span></span>
+            <span class="r-line" style="--d:.45s"><span>بل <span class="accent">نُظهرها</span></span></span>
+          </h2>
+        </div>
+
+        <ol class="s07__list">
+          <li style="--i:0"><span class="mono">01</span>مصفاة حمص</li>
+          <li style="--i:1"><span class="mono">02</span>محطة دير علي الصناعية</li>
+          <li style="--i:2"><span class="mono">03</span>البحوث العلمية</li>
+          <li style="--i:3"><span class="mono">04</span>مؤسسة مياه دمشق</li>
+          <li style="--i:4"><span class="mono">05</span>مؤسسة مياه حلب</li>
+          <li style="--i:5"><span class="mono">06</span>اتحاد عمال دمشق</li>
+        </ol>
+
+        <figure class="s07__shot r-fade" style="--d:.7s">
+          <div class="uiframe"><img src="assets/img/ui/home-projects.jpg" width="1440" height="2080" alt="عرض المشاريع في التصميم المقترح"></div>
+          <figcaption class="mono">Proposed · Projects</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         08 — من عملية شراء إلى علاقة مستمرة
+         ================================================================ -->
+    <section class="scene s08" id="s08" data-scene="relationship" data-tone="orange" aria-labelledby="s08-title">
+      <div class="s08__diamond" aria-hidden="true"><span></span><span></span><span></span></div>
+      <div class="ch s08__wrap">
+        <p class="eyebrow r-fade" style="--d:.1s"><span class="eyebrow__rule"></span><span class="mono">08</span>من عملية شراء إلى علاقة مستمرة</p>
+        <h2 class="h-giant" id="s08-title">
+          <span class="r-line" style="--d:.25s"><span>الشراء لا يجب أن يكون</span></span>
+          <span class="r-line" style="--d:.4s"><span>نهاية العلاقة</span></span>
+        </h2>
+
+        <div class="s08__intro">
+          <p class="s08__name r-fade" style="--d:1s"><i class="dia"></i>نقاط طهماز</p>
+          <p class="s08__def r-fade" style="--d:1.15s">كل عملية شراء عبر الموقع تضيف نقاطًا إلى حساب العميل.</p>
+        </div>
+
+        <ol class="s08__flow r-fade" style="--d:1.4s">
+          <li>شراء</li>
+          <li>جمع نقاط</li>
+          <li>رصيد داخل الحساب</li>
+          <li class="is-open">استفادة مستقبلية</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         09 — نقاط الولاء داخل تجربة الموقع
+         ================================================================ -->
+    <section class="scene s09" id="s09" data-scene="loyalty-ui" aria-labelledby="s09-title">
+      <div class="ch s09__grid">
+        <div class="s09__head">
+          <p class="eyebrow r-fade" style="--d:.1s"><span class="eyebrow__rule"></span><span class="mono">09</span>نقاط الولاء داخل التجربة</p>
+          <h2 class="h-xl" id="s09-title">
+            <span class="r-line" style="--d:.2s"><span>ليست صفحة ترويجية</span></span>
+            <span class="r-line" style="--d:.32s"><span>بل جزء من <span class="accent">حساب العميل</span></span></span>
+          </h2>
+          <ul class="s09__where r-fade" style="--d:.6s">
+            <li><span class="mono">A</span>الرصيد ظاهر في شريط التنقل</li>
+            <li><span class="mono">B</span>لوحة النقاط داخل الحساب</li>
+            <li><span class="mono">C</span>سجل النقاط المرتبط بالطلبات</li>
+            <li><span class="mono">D</span>نقاط كل طلب مكتمل</li>
+          </ul>
+          <p class="mono s09__note r-fade" style="--d:.8s">القيم في التصاميم توضيحية</p>
+        </div>
+
+        <div class="s09__stage">
+          <figure class="s09__badge r-fade" style="--d:.5s">
+            <div class="uiframe"><img src="assets/img/ui-home-desktop.png" alt="رصيد النقاط في شريط التنقل"></div>
+            <span class="tagpin mono">A</span>
+          </figure>
+          <figure class="s09__dash r-fade" style="--d:.65s">
+            <div class="uiframe"><img src="assets/img/ui/loyalty-hero.jpg" width="1440" height="740" alt="لوحة نقاط طهماز في الحساب"></div>
+            <span class="tagpin mono">B</span>
+          </figure>
+          <figure class="s09__rows r-fade" style="--d:.8s">
+            <div class="uiframe"><img src="assets/img/ui/loyalty-rows.jpg" width="1440" height="760" alt="حالات صف سجل النقاط"></div>
+            <span class="tagpin mono">C</span>
+          </figure>
+          <figure class="s09__phone r-fade" style="--d:.95s">
+            <div class="phone"><div class="phone__screen"><img src="assets/img/ui/loyalty-m-order.jpg" width="390" height="1030" alt="كل طلب يتحول إلى نقاط — جوال"></div></div>
+            <span class="tagpin mono">D</span>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         10 — كيف تعمل؟
+         ================================================================ -->
+    <section class="scene s10 scene--light" id="s10" data-scene="how" data-tone="light" aria-labelledby="s10-title">
+      <div class="ch s10__wrap">
+        <div class="s10__head">
+          <p class="eyebrow r-fade" style="--d:.1s"><span class="eyebrow__rule"></span><span class="mono">10</span>نقاط طهماز</p>
+          <h2 class="h-xl" id="s10-title"><span class="r-line" style="--d:.2s"><span>كيف تعمل؟</span></span></h2>
+        </div>
+
+        <ol class="steps">
+          <li style="--i:0"><span class="steps__n">01</span><h3>اشترِ</h3><p>اشترِ منتجاتك عبر موقع طهماز.</p></li>
+          <li style="--i:1"><span class="steps__n">02</span><h3>اجمع نقاطك</h3><p>تُضاف النقاط إلى رصيدك بحسب مشترياتك.</p></li>
+          <li style="--i:2"><span class="steps__n">03</span><h3>تابع رصيدك</h3><p>رصيدك وسجل نقاطك داخل حسابك.</p></li>
+          <li style="--i:3" class="is-open"><span class="steps__n">04</span><h3>استفد منها</h3><p>وفق آلية البرنامج.</p></li>
+        </ol>
+        <svg class="steps__path" viewBox="0 0 1000 120" preserveAspectRatio="none" aria-hidden="true">
+          <path class="steps__solid" d="M1000 100 H760 V70 H510 V40 H260" />
+          <path class="steps__dash" d="M260 40 V10 H0" />
+        </svg>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         11 — قيمة النظام لطهماز
+         ================================================================ -->
+    <section class="scene s11" id="s11" data-scene="value" aria-labelledby="s11-title">
+      <div class="ch s11__grid">
+        <div class="s11__head">
+          <p class="eyebrow r-fade" style="--d:.1s"><span class="eyebrow__rule"></span><span class="mono">11</span>قيمة النظام لطهماز</p>
+          <h2 class="h-xl" id="s11-title">
+            <span class="r-line" style="--d:.2s"><span class="dim">من نقطة بيع</span></span>
+            <span class="r-line" style="--d:.34s"><span>إلى قناة <span class="accent">علاقة مستمرة</span></span></span>
+          </h2>
+        </div>
+
+        <div class="cycle">
+          <svg class="cycle__ring" viewBox="0 0 400 400" aria-hidden="true">
+            <circle cx="200" cy="200" r="160" class="cycle__track"/>
+            <circle cx="200" cy="200" r="160" class="cycle__arc" pathLength="100"/>
+            <circle cx="200" cy="200" r="118" class="cycle__inner"/>
+          </svg>
+          <p class="cycle__core r-fade" style="--d:.5s"><span class="mono">Tahmaz</span>العميل</p>
+          <span class="cycle__node" style="--a:0"></span>
+          <span class="cycle__node" style="--a:90"></span>
+          <span class="cycle__node" style="--a:180"></span>
+          <span class="cycle__node" style="--a:270"></span>
+          <p class="cycle__lab cycle__lab--t r-fade" style="--d:.7s"><span class="mono">01</span>تشجيع تكرار الشراء</p>
+          <p class="cycle__lab cycle__lab--r r-fade" style="--d:.85s"><span class="mono">02</span>تعزيز ارتباط العميل بطهماز</p>
+          <p class="cycle__lab cycle__lab--b r-fade" style="--d:1s"><span class="mono">03</span>إضافة قيمة إلى الحساب الشخصي</p>
+          <p class="cycle__lab cycle__lab--l r-fade" style="--d:1.15s"><span class="mono">04</span>بناء تجربة ما بعد الشراء</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         12 — ما الذي يتغير وما الذي يبقى؟
+         ================================================================ -->
+    <section class="scene s12 scene--light" id="s12" data-scene="scope" data-tone="light" aria-labelledby="s12-title">
+      <div class="ch s12__wrap">
+        <div class="s12__head">
+          <p class="eyebrow r-fade" style="--d:.1s"><span class="eyebrow__rule"></span><span class="mono">12</span>نطاق المقترح</p>
+          <h2 class="h-xl" id="s12-title"><span class="r-line" style="--d:.2s"><span>ما الذي يتغير، وما الذي <span class="accent">يبقى</span>؟</span></span></h2>
+        </div>
+
+        <div class="map r-fade" style="--d:.4s" aria-label="هيكل الموقع الحالي">
+          <p class="mono map__label">Site map · unchanged</p>
+          <ol class="map__nodes">
+            <li>الرئيسية</li><li>المنتجات</li><li>المشاريع</li><li>عن الشركة</li><li>اتصل بنا</li><li class="is-new">الحساب <em>+ نقاط طهماز</em></li>
+          </ol>
+        </div>
+
+        <div class="scope">
+          <div class="scope__col scope__col--keep r-fade" style="--d:.6s">
+            <h3><span class="mono">—</span>يبقى</h3>
+            <ul><li>هيكل الموقع الأساسي</li><li>أقسام المنتجات الحالية</li><li>المشاريع</li><li>معلومات الشركة</li><li>التواصل</li><li>المحتوى التجاري الأساسي</li></ul>
+          </div>
+          <div class="scope__col scope__col--evolve r-fade" style="--d:.75s">
+            <h3><span class="mono">↻</span>يتطور</h3>
+            <ul><li>التصميم</li><li>تجربة الاستخدام</li><li>أسلوب عرض المنتجات</li><li>طريقة عرض المشاريع</li><li>التنقل</li><li>تجربة الشراء</li><li>تجربة الحساب</li></ul>
+          </div>
+          <div class="scope__col scope__col--add r-fade" style="--d:.9s">
+            <h3><span class="mono">+</span>يضاف</h3>
+            <p class="scope__add"><i class="dia"></i>نظام نقاط الولاء</p>
+            <p class="scope__foot">الإضافة الرئيسية الوحيدة — دون إعادة بناء هيكل الموقع.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         13 — الرؤية النهائية
+         ================================================================ -->
+    <section class="scene s13" id="s13" data-scene="vision" aria-labelledby="s13-title">
+      <div class="ch s13__grid">
+        <div class="s13__head">
+          <p class="eyebrow r-fade" style="--d:.1s"><span class="eyebrow__rule"></span><span class="mono">13</span>الرؤية النهائية</p>
+          <h2 class="h-xl" id="s13-title">
+            <span class="r-line" style="--d:.25s"><span class="dim">موقع لا يكتفي بعرض منتجات طهماز</span></span>
+            <span class="r-line" style="--d:.4s"><span>بل يعكس خبرتها</span></span>
+            <span class="r-line" style="--d:.52s"><span>ويقوّي <span class="accent">علاقتها بعملائها</span></span></span>
+          </h2>
+        </div>
+
+        <div class="s13__journey">
+          <figure class="s13__now r-fade" style="--d:.6s" data-shot="assets/img/current/home.jpg">
+            <div class="frag__schema" aria-hidden="true"><b class="w60"></b><b class="w90 tall"></b><b class="w40"></b><b class="row"><i></i><i></i><i></i></b></div>
+            <figcaption><span class="mono">Now</span>الموقع الحالي</figcaption>
+          </figure>
+          <span class="s13__arrow r-draw" style="--d:.9s" aria-hidden="true"></span>
+          <figure class="s13__next r-fade" style="--d:1.1s">
+            <div class="uiframe"><img src="assets/img/ui-home-desktop.png" width="1440" height="980" alt="تجربة طهماز الجديدة"></div>
+            <figcaption><span class="mono">Next</span>تجربة طهماز الجديدة</figcaption>
+          </figure>
+        </div>
+
+        <ol class="s13__chain r-fade" style="--d:1.4s">
+          <li>منتجات</li><li>حلول</li><li>مشاريع</li><li>شراء</li><li class="accent">ولاء</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         14 — الختام
+         ================================================================ -->
+    <section class="scene s14" id="s14" data-scene="closing" aria-labelledby="s14-title">
+      <div class="s14__dial" aria-hidden="true"><svg viewBox="0 0 600 600" data-dial></svg></div>
+      <div class="s14__glow" aria-hidden="true"></div>
+      <div class="ch s14__wrap">
+        <p class="s14__kicker r-fade" style="--d:.2s"><span class="eyebrow__rule"></span>الخطوة القادمة</p>
+        <h2 class="s14__title" id="s14-title">
+          <span class="r-line" style="--d:.4s"><span>أن تصبح تجربة طهماز الرقمية</span></span>
+          <span class="r-line" style="--d:.6s"><span class="accent">بحجم طهماز نفسها</span></span>
+        </h2>
+        <p class="s14__sign r-fade" style="--d:1.3s">
+          <span class="s14__mark">UpToMedia</span>
+          <span class="s14__x">×</span>
+          <img src="assets/img/tahmaz-logo.png" width="155" height="62" alt="Tahmaz">
+        </p>
+      </div>
+    </section>
+
   </main>
 
   <div class="grain" aria-hidden="true"></div>
 
   <script src="js/stage.js"></script>
   <script src="js/s01-opening.js"></script>
+  <script src="js/chapters.js"></script>
 </body>
 </html>

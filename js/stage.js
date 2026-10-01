@@ -71,6 +71,7 @@
     hooks[el.dataset.scene]?.enter?.(el);
 
     current = next;
+    root.dataset.tone = el.dataset.tone || "dark";
     updateRail(next);
     history.replaceState(null, "", "#" + pad(next + 1));
     setTimeout(() => (locked = false), instant ? 0 : TRANSITION_MS);

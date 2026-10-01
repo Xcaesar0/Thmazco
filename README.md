@@ -18,8 +18,10 @@ index.html            Stage, persistent HUD, scenes
 css/fonts.css         Self-hosted Alexandria / Cairo / IBM Plex Mono (OFL)
 css/foundation.css    Tokens, Arabic type scale, stage + reveal primitives, HUD
 css/s01-opening.css   Scene 01 — Opening
+css/chapters.css      Chapters 02–14
 js/stage.js           Scene controller: wheel / keys / swipe, rail, parallax, boot
-js/s01-opening.js     Scene 01 — technical gauge drawing
+js/s01-opening.js     Gauge drawing (opening + closing)
+js/chapters.js        Current-site screenshot slots
 assets/               Images and fonts (UI screens, photo + logo exported from the Tahmaz Figma)
 ```
 
@@ -38,3 +40,21 @@ assets/               Images and fonts (UI screens, photo + logo exported from t
 - Never apply `letter-spacing` to Arabic (it breaks joining). Tracking is for `.mono` only.
 - Never split Arabic into per-letter spans; reveal whole lines with masks.
 - Display line-height ≥ 1.3, statements 1.6, body 1.8–1.9.
+
+## Current-site screenshots
+
+Chapters 02 and 13 show a schematic of the current tahmazco.com until real
+screenshots are added. Save them as:
+
+```
+assets/img/current/home.jpg
+assets/img/current/products.jpg
+assets/img/current/projects.jpg
+```
+
+They replace the schematics automatically (16:10 crops work best).
+
+## Navigation
+
+Wheel / ↑ ↓ / Page Up–Down / Space / swipe. `Home` and `End` jump to the first
+and last scene; `#01`…`#14` in the URL opens a specific scene.
