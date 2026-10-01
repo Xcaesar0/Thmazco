@@ -1,7 +1,7 @@
 /* ==========================================================================
    SCENE 01 — الافتتاح / Opening
    One art-directed composition across the viewport:
-   far (graded atmosphere) → grid → gauge → photographic plate → typography.
+   far (graded atmosphere) → grid → gauge → device mockups (proposed UI) → typography.
    ========================================================================== */
 
 .s01 {
@@ -152,73 +152,112 @@
 .s01__dial .arc   { fill: none; stroke: var(--orange); stroke-width: 1.5; opacity: 0.85; }
 @keyframes s01-spin { to { transform: rotate(-360deg); } }
 
-/* ---------- Photographic plate ---------- */
-.s01__plate-layer {
+/* ---------- Device mockups ---------- */
+.s01__devices {
   margin: 0;
-  left: calc(var(--gutter) + 4.5vw);
-  top: calc(var(--hud-h) + 8vh);
-  height: min(56vh, 46vw);
-  aspect-ratio: 349 / 470;
+  left: calc(var(--gutter) - 2vw);
+  top: 50%;
+  width: min(54vw, 100vh);
+  aspect-ratio: 1440 / 1010;
+  translate: 0 -50%;
+  perspective: 2200px;
 }
-.s01__plate {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-.s01__plate-img {
+
+.s01__browser {
   position: absolute;
   inset: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--graphite);
+  border: 1px solid rgb(195 197 201 / 0.18);
+  border-radius: 10px;
   overflow: hidden;
+  box-shadow:
+    0 60px 120px -30px rgb(0 0 0 / 0.85),
+    0 0 0 1px rgb(0 0 0 / 0.4),
+    -30px 40px 120px -40px rgb(242 106 31 / 0.35);
+  transform-origin: 30% 50%;
+  transform: rotateY(16deg) rotateX(4deg) translate3d(-4%, 6%, 0);
+  opacity: 0;
+  transition: transform 2s var(--ease-out) 0.9s, opacity 1.2s var(--ease-out) 0.9s;
+}
+.is-in .s01__browser {
+  transform: rotateY(9deg) rotateX(2deg);
+  opacity: 1;
+}
+
+.s01__browser-bar {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  height: 3.2%;
+  min-height: 22px;
+  padding-inline: 14px;
   background: var(--coal);
-  clip-path: inset(100% 0 0 0);
-  transition: clip-path 1.5s var(--ease-out) 1.05s;
+  border-bottom: 1px solid rgb(195 197 201 / 0.1);
+  direction: ltr;
 }
-.s01__plate-img::after {         /* warm the floor, as in the Tahmaz direction */
-  content: "";
-  position: absolute;
-  inset: 45% 0 0;
-  background: linear-gradient(180deg, rgb(242 106 31 / 0), rgb(242 106 31 / 0.38));
-  mix-blend-mode: soft-light;
+.s01__dots { display: flex; gap: 6px; }
+.s01__dots i { width: 7px; height: 7px; border-radius: 50%; background: rgb(195 197 201 / 0.25); }
+.s01__dots i:first-child { background: var(--orange); }
+.s01__url {
+  flex: 1;
+  max-width: 40%;
+  margin-inline: auto;
+  padding: 2px 10px;
+  border-radius: 4px;
+  background: rgb(14 14 16 / 0.6);
+  font-size: 9px;
+  text-align: center;
+  text-transform: none;
 }
-.s01__plate-img img {
+
+.s01__screen { position: relative; flex: 1; overflow: hidden; }
+.s01__screen img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: contrast(1.08) saturate(0.85);
-  transform: scale(1.22);
-  transition: transform 2.6s var(--ease-out) 1.05s;
+  object-position: top;
 }
-.is-in .s01__plate-img { clip-path: inset(0 0 0 0); }
-.is-in .s01__plate-img img {
-  transform: scale(1.04);
-  animation: s01-push 18s ease-in-out 3.8s infinite alternate;
-}
-@keyframes s01-push {
-  from { transform: scale(1.04) translate3d(0, 0, 0); }
-  to   { transform: scale(1.1) translate3d(1.5%, -1%, 0); }
+.s01__screen::after {     /* glass sheen */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, rgb(255 255 255 / 0.06) 0%, rgb(255 255 255 / 0) 35%);
+  pointer-events: none;
 }
 
-.s01__bracket {
+.s01__phone {
   position: absolute;
-  width: 44px;
-  height: 44px;
-  border: 0 solid var(--orange);
+  right: -7%;
+  bottom: -7%;
+  width: 24%;
+  aspect-ratio: 390 / 844;
+  padding: 1.6%;
+  border-radius: 13% / 6%;
+  background: linear-gradient(160deg, #3a3a40, #121214 60%);
+  border: 1px solid rgb(195 197 201 / 0.25);
+  box-shadow:
+    0 40px 80px -20px rgb(0 0 0 / 0.9),
+    0 0 0 1px rgb(0 0 0 / 0.5);
   opacity: 0;
-  transition: opacity 0.8s var(--ease-out) 1.8s, translate 1s var(--ease-out) 1.8s;
+  transform: translate3d(0, 18%, 0) rotate(-2deg);
+  transition: transform 1.8s var(--ease-out) 1.35s, opacity 1s var(--ease-out) 1.35s;
 }
-.s01__bracket--ts { top: -12px; left: -12px; border-top-width: 2px; border-left-width: 2px; translate: 10px 10px; }
-.s01__bracket--be { bottom: -12px; right: -12px; border-bottom-width: 2px; border-right-width: 2px; translate: -10px -10px; }
-.is-in .s01__bracket { opacity: 1; translate: 0 0; }
+.is-in .s01__phone { opacity: 1; transform: rotate(-2deg); }
+.s01__phone-screen {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 11% / 5%;
+}
+.s01__phone-screen img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
 
 .s01__caption {
   position: absolute;
-  top: calc(100% + 1.25rem);
-  left: 0;
-  right: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 0 1rem;
+  bottom: calc(100% + 1.1rem);
+  left: 1%;
   direction: ltr;
 }
 .s01__caption .mono { white-space: nowrap; }
@@ -228,7 +267,7 @@
   inset-inline-start: var(--gutter);    /* right edge in RTL */
   top: var(--hud-h);
   bottom: var(--hud-h);
-  width: min(68vw, 76rem);
+  width: min(38vw, 40rem);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -363,20 +402,20 @@
 
 /* Short desktop viewports: tighten the vertical rhythm */
 @media (min-width: 761px) and (max-height: 760px) {
-  .s01 { --t-colossal: clamp(6rem, min(18.5vw, 28vh), 22rem); }
+  .s01 { --t-colossal: clamp(4rem, min(8vw, 14vh), 8rem); }
 }
 
 /* Tablet portrait */
 @media (min-width: 761px) and (max-aspect-ratio: 1/1) {
-  .s01 { --t-colossal: clamp(6rem, 25vw, 17rem); }
+  .s01 { --t-colossal: clamp(4.5rem, 14vw, 8rem); }
   .s01__type { width: calc(100vw - 2 * var(--gutter)); justify-content: flex-start; padding: 5vh 0 0; }
-  .s01__plate-layer { top: auto; bottom: calc(var(--hud-h) + 6vh); height: 34vh; }
+  .s01__devices { top: auto; bottom: calc(var(--hud-h) + 9vh); translate: 0 0; width: 74vw; left: var(--gutter); }
   .s01__dial-layer { top: auto; bottom: calc(var(--hud-h) + 23vh); }
 }
 
 /* Phone */
 @media (max-width: 760px) {
-  .s01 { --t-colossal: min(25.5vw, 7.5rem); --t-statement: clamp(1.5rem, 6.6vw, 2.1rem); }
+  .s01 { --t-colossal: min(17vw, 4.5rem); --t-statement: clamp(1.5rem, 6.6vw, 2.1rem); }
 
   .s01__type {
     inset-inline: var(--gutter);
@@ -393,13 +432,15 @@
 
   .s01__copy { margin-top: auto; }
 
-  .s01__plate-layer {
-    left: auto;
-    right: var(--gutter);
-    top: calc(var(--hud-h) + 3vh + 25.5vw * 1.3 + 3.5rem);
-    height: min(30vh, 66vw);
+  .s01__devices {
+    left: -6vw;
+    top: calc(var(--hud-h) + 3vh + 17vw * 1.3 + 2.5rem);
+    translate: 0 0;
+    width: 88vw;
   }
-  .s01__caption { flex-direction: column; gap: 0; top: 0; left: auto; right: calc(100% + 1rem); width: max-content; writing-mode: vertical-rl; transform: rotate(180deg); }
+  .s01__phone { right: -10%; bottom: -30%; width: 30%; }
+  .s01__caption { display: none; }
+  .s01__url { font-size: 7px; }
 
   .s01__dial-layer { left: 62vw; top: 56vh; }
   .s01__dial { width: 130vw; }

@@ -20,7 +20,7 @@ css/foundation.css    Tokens, Arabic type scale, stage + reveal primitives, HUD
 css/s01-opening.css   Scene 01 — Opening
 js/stage.js           Scene controller: wheel / keys / swipe, rail, parallax, boot
 js/s01-opening.js     Scene 01 — technical gauge drawing
-assets/               Images and fonts (photo + logo exported from the Tahmaz Figma)
+assets/               Images and fonts (UI screens, photo + logo exported from the Tahmaz Figma)
 ```
 
 ## Adding a scene
