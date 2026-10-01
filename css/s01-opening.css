@@ -1,0 +1,420 @@
+/* ==========================================================================
+   SCENE 01 — الافتتاح / Opening
+   One art-directed composition across the viewport:
+   far (graded atmosphere) → grid → gauge → photographic plate → typography.
+   ========================================================================== */
+
+.s01 {
+  background: var(--ink);
+  --px: 0;   /* pointer parallax, -1…1, written by js/stage.js */
+  --py: 0;
+}
+
+/* Parallax wrappers. Reveal transforms live on children, never on .layer. */
+.layer {
+  position: absolute;
+  transform: translate3d(calc(var(--px) * var(--depth, 0) * 1px),
+                         calc(var(--py) * var(--depth, 0) * 1px), 0);
+  will-change: transform;
+}
+
+/* ---------- Curtain (first load only) ---------- */
+.curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background: var(--ink);
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  transition: opacity 0.9s var(--ease-inout) 0.55s;
+}
+.curtain__line {
+  width: min(38vw, 420px);
+  height: 1px;
+  background: var(--orange);
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform 0.7s var(--ease-out), opacity 0.4s ease 0.6s;
+}
+.is-loading .curtain__line { transform: scaleX(0.35); }
+.is-ready .curtain__line { transform: scaleX(1); opacity: 0; }
+.is-ready .curtain { opacity: 0; }
+
+/* ---------- Far: atmosphere ---------- */
+.s01__far {
+  inset: -8%;
+}
+.s01__atmos {
+  position: absolute;
+  inset: 0;
+  background: url("../assets/img/plant-room.png") center 40% / cover no-repeat;
+  filter: blur(34px) saturate(0.7) brightness(0.42) contrast(1.15);
+  opacity: 0;
+  transform: scale(1.18);
+  transition: opacity 2.4s var(--ease-out) 0.2s, transform 3.2s var(--ease-out) 0.2s;
+}
+.is-in .s01__atmos {
+  opacity: 0.75;
+  transform: scale(1.06);
+  animation: s01-drift 26s ease-in-out 3.4s infinite alternate;
+}
+@keyframes s01-drift {
+  from { transform: scale(1.06) translate3d(0, 0, 0); }
+  to   { transform: scale(1.12) translate3d(-1.5%, -1%, 0); }
+}
+
+.s01__glow {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 2.6s var(--ease-out) 0.6s;
+}
+.s01__glow--orange {
+  width: 70vw;
+  height: 60vh;
+  left: -22vw;
+  bottom: -26vh;
+  background: radial-gradient(closest-side, rgb(242 106 31 / 0.42), rgb(242 106 31 / 0) 100%);
+}
+.s01__glow--red {
+  width: 50vw;
+  height: 44vh;
+  left: 14vw;
+  bottom: -24vh;
+  background: radial-gradient(closest-side, rgb(155 28 28 / 0.38), rgb(155 28 28 / 0) 100%);
+}
+.is-in .s01__glow { opacity: 1; }
+
+.s01__vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgb(14 14 16 / 0) 30%, rgb(14 14 16 / 0.82) 78%),
+    linear-gradient(180deg, rgb(14 14 16 / 0.7) 0%, rgb(14 14 16 / 0) 22%, rgb(14 14 16 / 0) 70%, rgb(14 14 16 / 0.85) 100%);
+}
+
+/* ---------- Technical grid ---------- */
+.s01__grid {
+  position: absolute;
+  inset: var(--hud-h) var(--gutter);
+  pointer-events: none;
+}
+.s01__col {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--line);
+}
+.s01__col:nth-child(1) { inset-inline-start: 34%; }
+.s01__col:nth-child(2) { inset-inline-start: 67%; }
+.s01__col:nth-child(3) { inset-inline-end: 0; background: transparent; border-inline-start: 1px dashed var(--line); }
+.s01__row {
+  position: absolute;
+  inset-inline: 0;
+  top: 64%;
+  height: 1px;
+  background: var(--line);
+}
+.s01__reg--a { inset-inline-start: calc(34% - 6px); top: calc(64% - 6px); }
+.s01__reg--b { inset-inline-start: calc(67% - 6px); top: calc(64% - 6px); }
+.s01__reg--c { inset-inline-start: calc(34% - 6px); top: -6px; }
+
+/* ---------- Gauge ---------- */
+.s01__dial-layer {
+  left: calc(var(--gutter) + 13vw);
+  top: 50%;
+  width: 0;
+  height: 0;
+}
+.s01__dial {
+  position: absolute;
+  width: min(92vh, 62vw);
+  aspect-ratio: 1;
+  left: 0;
+  top: 0;
+  translate: -50% -50%;
+}
+.s01__dial svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  animation: s01-spin 240s linear infinite;
+}
+.s01__dial .t     { stroke: var(--silver); stroke-width: 1; opacity: 0.22; }
+.s01__dial .t--lg { opacity: 0.5; }
+.s01__dial .t--hot { stroke: var(--orange); opacity: 0.9; stroke-width: 1.5; }
+.s01__dial .ring  { fill: none; stroke: var(--silver); opacity: 0.12; }
+.s01__dial .ring--dash { stroke-dasharray: 2 6; opacity: 0.28; }
+.s01__dial .arc   { fill: none; stroke: var(--orange); stroke-width: 1.5; opacity: 0.85; }
+@keyframes s01-spin { to { transform: rotate(-360deg); } }
+
+/* ---------- Photographic plate ---------- */
+.s01__plate-layer {
+  margin: 0;
+  left: calc(var(--gutter) + 4.5vw);
+  top: calc(var(--hud-h) + 8vh);
+  height: min(56vh, 46vw);
+  aspect-ratio: 349 / 470;
+}
+.s01__plate {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.s01__plate-img {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: var(--coal);
+  clip-path: inset(100% 0 0 0);
+  transition: clip-path 1.5s var(--ease-out) 1.05s;
+}
+.s01__plate-img::after {         /* warm the floor, as in the Tahmaz direction */
+  content: "";
+  position: absolute;
+  inset: 45% 0 0;
+  background: linear-gradient(180deg, rgb(242 106 31 / 0), rgb(242 106 31 / 0.38));
+  mix-blend-mode: soft-light;
+}
+.s01__plate-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: contrast(1.08) saturate(0.85);
+  transform: scale(1.22);
+  transition: transform 2.6s var(--ease-out) 1.05s;
+}
+.is-in .s01__plate-img { clip-path: inset(0 0 0 0); }
+.is-in .s01__plate-img img {
+  transform: scale(1.04);
+  animation: s01-push 18s ease-in-out 3.8s infinite alternate;
+}
+@keyframes s01-push {
+  from { transform: scale(1.04) translate3d(0, 0, 0); }
+  to   { transform: scale(1.1) translate3d(1.5%, -1%, 0); }
+}
+
+.s01__bracket {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  border: 0 solid var(--orange);
+  opacity: 0;
+  transition: opacity 0.8s var(--ease-out) 1.8s, translate 1s var(--ease-out) 1.8s;
+}
+.s01__bracket--ts { top: -12px; left: -12px; border-top-width: 2px; border-left-width: 2px; translate: 10px 10px; }
+.s01__bracket--be { bottom: -12px; right: -12px; border-bottom-width: 2px; border-right-width: 2px; translate: -10px -10px; }
+.is-in .s01__bracket { opacity: 1; translate: 0 0; }
+
+.s01__caption {
+  position: absolute;
+  top: calc(100% + 1.25rem);
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0 1rem;
+  direction: ltr;
+}
+.s01__caption .mono { white-space: nowrap; }
+
+/* ---------- Typography ---------- */
+.s01__type {
+  inset-inline-start: var(--gutter);    /* right edge in RTL */
+  top: var(--hud-h);
+  bottom: var(--hud-h);
+  width: min(68vw, 76rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 3vh;
+  text-align: start;
+}
+
+.s01__dim {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 92%;
+  margin-inline-start: 0.6%;
+}
+.s01__dim .mono { color: var(--silver); white-space: nowrap; }
+.s01__dim-line {
+  position: relative;
+  flex: 1;
+  height: 1px;
+  background: var(--line-strong);
+}
+.s01__dim-line::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  width: 1px;
+  height: 9px;
+  background: var(--silver);
+}
+.s01__dim-line:first-child::before { inset-inline-start: 0; }
+.s01__dim-line:last-child::before  { inset-inline-end: 0; }
+
+.s01__word {
+  position: relative;
+  margin: -0.08em 0 0.02em;
+  font-family: var(--f-display);
+  font-weight: 900;
+  font-size: var(--t-colossal);
+  line-height: var(--lh-display);
+  white-space: nowrap;
+}
+.s01__word-ink {
+  display: inline-block;
+  padding-inline: 0.04em;
+  background: linear-gradient(180deg, var(--paper) 28%, var(--bone) 62%, #a7a094 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  clip-path: inset(-20% -4% -20% 100%);
+  filter: blur(14px);
+  opacity: 0.4;
+  transition:
+    clip-path 1.6s var(--ease-out) 0.5s,
+    filter 1.4s var(--ease-out) 0.6s,
+    opacity 1.2s var(--ease-out) 0.5s;
+}
+.is-in .s01__word-ink {
+  clip-path: inset(-20% -4% -20% -4%);
+  filter: blur(0);
+  opacity: 1;
+}
+
+/* The orange edge that leads the wipe */
+.s01__wipe {
+  position: absolute;
+  top: 22%;
+  bottom: 18%;
+  width: 2px;
+  inset-inline-start: 0;
+  background: var(--orange);
+  box-shadow: 0 0 24px 2px rgb(242 106 31 / 0.55);
+  opacity: 0;
+  pointer-events: none;
+}
+.is-in .s01__wipe { animation: s01-wipe 1.6s var(--ease-out) 0.5s both; }
+@keyframes s01-wipe {
+  0%   { opacity: 0; inset-inline-start: 0; }
+  10%  { opacity: 1; }
+  70%  { opacity: 0.9; }
+  100% { opacity: 0; inset-inline-start: calc(100% - 2px); }
+}
+
+.s01__copy {
+  position: relative;
+  max-width: 44rem;
+}
+
+.s01__statement {
+  margin: 0;
+  font-family: var(--f-display);
+  font-size: var(--t-statement);
+  line-height: var(--lh-statement);
+  text-wrap: balance;
+}
+.s01__from {
+  font-weight: 300;
+  color: var(--steel);
+}
+.s01__to {
+  font-weight: 700;
+  color: var(--paper);
+}
+
+.s01__support {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  margin: clamp(1rem, 2.6vh, 1.75rem) 0 0;
+  font-family: var(--f-text);
+  font-size: var(--t-lead);
+  font-weight: 400;
+  line-height: 1.8;
+  color: var(--silver);
+}
+.s01__support-rule {
+  flex: none;
+  width: 3rem;
+  height: 1px;
+  background: var(--orange);
+}
+
+/* Small technical tag pinned to the grid */
+.s01__tag {
+  position: absolute;
+  bottom: calc(var(--hud-h) + 1.1rem);
+  inset-inline-end: var(--gutter);
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+/* Short desktop viewports: tighten the vertical rhythm */
+@media (min-width: 761px) and (max-height: 760px) {
+  .s01 { --t-colossal: clamp(6rem, min(18.5vw, 28vh), 22rem); }
+}
+
+/* Tablet portrait */
+@media (min-width: 761px) and (max-aspect-ratio: 1/1) {
+  .s01 { --t-colossal: clamp(6rem, 25vw, 17rem); }
+  .s01__type { width: calc(100vw - 2 * var(--gutter)); justify-content: flex-start; padding: 5vh 0 0; }
+  .s01__plate-layer { top: auto; bottom: calc(var(--hud-h) + 6vh); height: 34vh; }
+  .s01__dial-layer { top: auto; bottom: calc(var(--hud-h) + 23vh); }
+}
+
+/* Phone */
+@media (max-width: 760px) {
+  .s01 { --t-colossal: min(25.5vw, 7.5rem); --t-statement: clamp(1.5rem, 6.6vw, 2.1rem); }
+
+  .s01__type {
+    inset-inline: var(--gutter);
+    top: calc(var(--hud-h) + 3vh);
+    bottom: calc(var(--hud-h) + 4.5vh);
+    width: auto;
+    justify-content: flex-start;
+    padding: 0;
+  }
+  .s01__dim { width: 100%; margin: 0; }
+  .s01__word { margin-block: 0 -0.08em; }
+  .s01__support { font-size: 0.9375rem; gap: 0.8rem; }
+  .s01__support-rule { width: 1.75rem; }
+
+  .s01__copy { margin-top: auto; }
+
+  .s01__plate-layer {
+    left: auto;
+    right: var(--gutter);
+    top: calc(var(--hud-h) + 3vh + 25.5vw * 1.3 + 3.5rem);
+    height: min(30vh, 66vw);
+  }
+  .s01__caption { flex-direction: column; gap: 0; top: 0; left: auto; right: calc(100% + 1rem); width: max-content; writing-mode: vertical-rl; transform: rotate(180deg); }
+
+  .s01__dial-layer { left: 62vw; top: 56vh; }
+  .s01__dial { width: 130vw; }
+
+  .s01__col:nth-child(1) { inset-inline-start: 50%; }
+  .s01__col:nth-child(2),
+  .s01__reg--b,
+  .s01__tag { display: none; }
+  .s01__reg--a { inset-inline-start: calc(50% - 6px); }
+  .s01__reg--c { inset-inline-start: calc(50% - 6px); }
+  .s01__row { top: 58%; }
+  .s01__reg--a { top: calc(58% - 6px); }
+
+  .s01__vignette {
+    background:
+      linear-gradient(180deg, rgb(14 14 16 / 0.6) 0%, rgb(14 14 16 / 0) 25%, rgb(14 14 16 / 0.2) 55%, rgb(14 14 16 / 0.92) 82%);
+  }
+}

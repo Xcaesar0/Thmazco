@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>طهماز — رؤية رقمية</title>
+  <meta name="description" content="عرض تفاعلي من UpToMedia: رؤية مقترحة لتطوير تجربة طهماز الرقمية.">
+  <meta name="theme-color" content="#0e0e10">
+  <link rel="preload" href="assets/fonts/alexandria-arabic-900-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/alexandria-arabic-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/foundation.css">
+  <link rel="stylesheet" href="css/s01-opening.css">
+</head>
+<body>
+
+  <!-- Opening curtain: a single orange hairline, then the stage -->
+  <div class="curtain" aria-hidden="true"><span class="curtain__line"></span></div>
+
+  <!-- Presentation chrome -->
+  <header class="hud hud--top">
+    <div class="hud__brand r-fade" style="--d:2.1s">
+      <img src="assets/img/tahmaz-logo.png" width="155" height="62" alt="عمر طهماز">
+      <span class="hud__brand-sep" aria-hidden="true"></span>
+      <span class="hud__brand-label">مقترح التجربة الرقمية</span>
+    </div>
+    <span class="mono r-fade" style="--d:2.2s">Digital Experience Proposal · 2026</span>
+    <span class="hud__rule r-draw" style="--d:1.9s" aria-hidden="true"></span>
+  </header>
+
+  <footer class="hud hud--bottom">
+    <p class="hud__credit r-fade" style="--d:2.4s">إعداد وتقديم <strong>UpToMedia</strong></p>
+
+    <div class="rail r-fade" style="--d:2.5s" aria-hidden="true">
+      <span class="mono rail__index" data-rail-index>01</span>
+      <span class="rail__ticks" data-rail-ticks></span>
+      <span class="mono" data-rail-total>08</span>
+    </div>
+
+    <button class="cue r-fade" style="--d:2.6s" type="button" data-next>
+      <span class="cue__label">مرّر للمتابعة</span>
+      <span class="cue__track" aria-hidden="true"></span>
+    </button>
+    <span class="hud__rule r-draw" style="--d:2s" aria-hidden="true"></span>
+  </footer>
+
+  <!-- Stage. data-total is the planned scene count for the full presentation;
+       scenes are added one by one as sections are built. -->
+  <main class="stage" data-total="8">
+
+    <!-- ================================================================
+         SCENE 01 — الافتتاح
+         ================================================================ -->
+    <section class="scene s01" id="s01" data-scene="opening" aria-labelledby="s01-title">
+
+      <!-- Far: atmospheric plate (blurred, graded) + light -->
+      <div class="layer s01__far" data-depth="-6" aria-hidden="true">
+        <div class="s01__atmos"></div>
+      </div>
+      <div class="s01__glow s01__glow--orange" aria-hidden="true"></div>
+      <div class="s01__glow s01__glow--red" aria-hidden="true"></div>
+      <div class="s01__vignette" aria-hidden="true"></div>
+
+      <!-- Technical grid -->
+      <div class="s01__grid" aria-hidden="true">
+        <span class="s01__col r-draw is-vertical" style="--d:.25s"></span>
+        <span class="s01__col r-draw is-vertical" style="--d:.35s"></span>
+        <span class="s01__col r-draw is-vertical" style="--d:.45s"></span>
+        <span class="s01__row r-draw" style="--d:.55s"></span>
+        <i class="reg s01__reg s01__reg--a r-fade" style="--d:1.4s"></i>
+        <i class="reg s01__reg s01__reg--b r-fade" style="--d:1.5s"></i>
+        <i class="reg s01__reg s01__reg--c r-fade" style="--d:1.6s"></i>
+      </div>
+
+      <!-- Mid: rotating gauge -->
+      <div class="layer s01__dial-layer" data-depth="-14" aria-hidden="true">
+        <div class="s01__dial r-fade" style="--d:.9s">
+          <svg viewBox="0 0 600 600" data-dial></svg>
+        </div>
+      </div>
+
+      <!-- Mid: photographic plate -->
+      <figure class="layer s01__plate-layer" data-depth="10">
+        <div class="s01__plate">
+          <div class="s01__plate-img">
+            <img src="assets/img/plant-room.png" width="349" height="470" alt="غرفة محطات ضخ وأنابيب صناعية">
+          </div>
+          <span class="s01__bracket s01__bracket--ts" aria-hidden="true"></span>
+          <span class="s01__bracket s01__bracket--be" aria-hidden="true"></span>
+        </div>
+        <figcaption class="s01__caption r-fade" style="--d:1.9s">
+          <span class="mono">Fig. 01 — Plant room</span>
+          <span class="mono">33.51° N · 36.29° E</span>
+        </figcaption>
+      </figure>
+
+      <!-- Near: typography -->
+      <div class="layer s01__type" data-depth="22">
+
+        <div class="s01__dim r-fade" style="--d:1.5s" aria-hidden="true">
+          <span class="s01__dim-line"></span>
+          <span class="mono">Tahmaz — Est. 1970</span>
+          <span class="s01__dim-line"></span>
+        </div>
+
+        <h1 class="s01__word" id="s01-title">
+          <span class="s01__word-ink">طهماز</span>
+          <span class="s01__wipe" aria-hidden="true"></span>
+        </h1>
+
+        <div class="s01__copy bump-target">
+          <p class="s01__statement">
+            <span class="r-line" style="--d:1.55s"><span class="s01__from">من حضور رقمي تقليدي</span></span>
+            <span class="r-line" style="--d:1.72s"><span class="s01__to">إلى تجربة تليق <span class="accent">بحجم طهماز</span></span></span>
+          </p>
+
+          <p class="s01__support">
+            <span class="s01__support-rule r-draw" style="--d:2.05s" aria-hidden="true"></span>
+            <span class="r-line" style="--d:2.1s"><span>رؤية مقترحة لتطوير تجربة طهماز الرقمية</span></span>
+          </p>
+        </div>
+      </div>
+
+      <span class="mono s01__tag s01__tag--scene r-fade" style="--d:2.3s" aria-hidden="true">Scene 01 / Opening</span>
+    </section>
+
+  </main>
+
+  <div class="grain" aria-hidden="true"></div>
+
+  <script src="js/stage.js"></script>
+  <script src="js/s01-opening.js"></script>
+</body>
+</html>
